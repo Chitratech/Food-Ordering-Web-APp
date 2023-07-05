@@ -1,0 +1,64 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+/*  css codes for header part*/
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+}
+
+.header-list-container > ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.header-list-container > ul > li {
+  padding: 5px;
+  margin: 5px;
+}
+
+/*  css codes for Body part*/
+.res-Container {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Card-Container {
+  width: 220px;
+  padding: 10px;
+  background-color: rgb(221, 221, 221);
+  margin: 10px;
+}
+
+.main-food-banner {
+  width: 200px;
+  height: 120px;
+}
+
+div.Card-Container:hover {
+  border: 1px solid grey;
+}
+
+.filter-btn{
+  background-color: rgb(255, 255, 255);
+border-style: none;
+font-size: 20px;
+  font-weight: 500;
+
+}
+.filter-btn:hover{
+  border-bottom: 1px solid black;
+}
