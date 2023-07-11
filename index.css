@@ -63,6 +63,12 @@ font-size: 20px;
   border-bottom: 1px solid black;
 }
 
+.login-btn{
+  background-color: rgb(197, 197, 197);
+  width: 100px;
+  border-style: none;
+}
+
 /* shimmer Ui */
 .shimmer-Warp{
   display: flex;

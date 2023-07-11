@@ -3,6 +3,7 @@ import ResCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [originalRestaturants, setOriginalRestaturants] = useState([]);
@@ -31,12 +32,15 @@ const Body = () => {
     setSearchValue(e.target.value);
   };
   const searchChanges = () => {
+    if (!searchValue) {
+      setlistofRestaturant(originalRestaturants);
+    }else{
     const nameFilter = originalRestaturants.filter((restaturantname) =>
       restaturantname.data.name.toLowerCase().includes(searchValue.toLowerCase())
     );
 
     setlistofRestaturant(nameFilter);
-  };
+  }};
 
   //four star rating code 
   const RatingBtn = () => {
@@ -50,12 +54,11 @@ const Body = () => {
     setlistofRestaturant(originalRestaturants);
   };
 
- 
-  if (originalRestaturants.length === 0) {
 
-    return <Shimmer />;
-  }
-  return (
+
+ 
+ return originalRestaturants.length === 0?  <Shimmer />:
+   (
     <div>
       <div>
         <input
@@ -75,11 +78,11 @@ const Body = () => {
           Reset
         </button>
       </div>
-      
-   {listofRestaturant.length === 0 ? <h2>Data not found</h2> : null}
-  <div className="res-Container">
+      {listofRestaturant.length === 0 ? <h2>Data not found</h2> : null}
+
+      <div className="res-Container">
         {listofRestaturant.map((restaturants) => (
-          <ResCard key={restaturants.data.id} resData={restaturants} />
+         <Link key={restaturants.data.id} to={"/restaurants/"+restaturants.data.id}>  <ResCard  resData={restaturants} /></Link>
         ))}
       </div>
     </div>
