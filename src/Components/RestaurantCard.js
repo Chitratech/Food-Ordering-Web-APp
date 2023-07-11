@@ -3,18 +3,20 @@ import { CDN_URL } from "../utils/constants";
 const ResCard = (props) => {
   const { resData } = props;
 
+  const {cloudinaryImageId,name,cuisines,costForTwo,avgRating,deliveryTime}=resData.data;
+
   return (
-    <div className="Card-Container"  >
+    <div className=" relative flex flex-wrap w-[250px] h-[350px] m-4 p-4 border-black bg-slate-200  hover:bg-slate-400"  >
       <img
-        className="main-food-banner"
-        src={CDN_URL + resData.data.cloudinaryImageId}
+        className="rounded-lg"
+        src={CDN_URL + cloudinaryImageId}
         alt="meghana foods image banner"
       />
-      <h3> {resData.data.name}</h3>
-      <h4>{resData.data.cuisines.join(",")} </h4>
-      <h4>₹{resData.data.costForTwo / 100} For Two</h4>
-      <h4>{resData.data.avgRating}stars</h4>
-      <h4>{resData.data.deliveryTime}minutes delivery</h4>
+      <p className="font-bold text-lg  " > {name}</p>
+      <div className="text-sm break-words line-clamp-3 overflow-hidden ">{cuisines.join(",")} </div>
+      <p className="">₹{costForTwo / 100} For Two</p>
+      <p className="">{avgRating}stars</p>
+      <p className="">{deliveryTime}minutes delivery</p>
     </div>
   );
 };

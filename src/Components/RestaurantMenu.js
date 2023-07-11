@@ -6,8 +6,8 @@ import useRestaurantMenuData from "../utils/useRestaurantMenuData";
 const RestaurantMenu = () => {
 
 
-  const {resIds}=useParams();
-  const resDetails = useRestaurantMenuData(resIds);
+  const {resId}=useParams();
+  const resDetails = useRestaurantMenuData(resId);
 
   if (!resDetails?.cards || resDetails.cards.length === 0) {
     return <Shimmer />;

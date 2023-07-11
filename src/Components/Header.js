@@ -14,16 +14,16 @@ const Header = () => {
     }
   };
   return (
-    <div className="header-container">
-      <div className="logo-div">
-        <img className="logo-img" src={LOGO_URL} />
+    <div className="flex justify-between bg-pink-100 shadow-md">
+      <div className="logo-div   py-4 " >
+        <img className="w-28 shadow-md" src={LOGO_URL} />
       </div>
-      <div className="header-list-container">
-        <ul className="ul-list">
-          <li><Link to="/"> Home</Link></li>
-          <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/contact">Contact us </Link></li>
-          <li>Cart</li>
+      <div className="header-list-container flex items-center  ">
+        <ul className="flex p-4 m-5 ">
+          <li className="px-5"><Link to="/"> Home</Link></li>
+          <li className="px-5"><Link to="/about">About Us</Link></li>
+          <li className="px-5"><Link to="/contact">Contact us </Link></li>
+          <li className="px-5">Cart</li>
           <button className="login-btn" onClick={loginOut}>
             {btnname}{" "}
           </button>
