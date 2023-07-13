@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ResCard from "./RestaurantCard";
+import ResCard,{withPromoted} from "./RestaurantCard";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ const Body = () => {
   const [listofRestaturant, setlistofRestaturant] = useState([]);
   const [searchValue, setSearchValue] = useState();
 
+  const LablePromtedResCard= withPromoted(ResCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -17,7 +18,7 @@ const Body = () => {
   //fetch api code
   const fetchData = async () => {
     const foodApi = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0970811&lng=77.57698669999999&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
     const foodApiJsonFormat = await foodApi.json();
 
@@ -73,7 +74,7 @@ const Body = () => {
           onChange={handelSearchChnages}
         />
         <button
-          className="filter-btn ml-4 bg-gray-200 border-blue-200  px-4  py-2 rounded-lg"
+          className=" ml-4 bg-gray-200 border-blue-200  px-4  py-2 rounded-lg"
           onClick={searchChanges}
         >
           Search
@@ -96,8 +97,8 @@ const Body = () => {
             key={restaturants.data.id}
             to={"/restaurants/" + restaturants.data.id}
           >
-          
-            <ResCard resData={restaturants} />
+          {restaturants.data.promoted ? (<LablePromtedResCard resData={restaturants}  /> ): (   <ResCard resData={restaturants} />) }
+         
           </Link>
         ))}
       </div>

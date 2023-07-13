@@ -23,9 +23,10 @@ const Header = () => {
           <li className="px-5"><Link to="/"> Home</Link></li>
           <li className="px-5"><Link to="/about">About Us</Link></li>
           <li className="px-5"><Link to="/contact">Contact us </Link></li>
+          <li className="px-5"><Link to="/instamart">Instamart</Link></li>
           <li className="px-5">Cart</li>
           <button className="login-btn" onClick={loginOut}>
-            {btnname}{" "}
+        
           </button>
         </ul>
       </div>

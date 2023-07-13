@@ -16,13 +16,14 @@ const RestaurantMenu = () => {
   const { name, cuisines } = resDetails.cards[0]?.card?.card?.info || {};
 const {itemCards}= resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   return (
-    <div className="menu">
-      <h1>{name}</h1>
+    <div className="text-center">
+      <h1 className="font-bold m-4 p-5 text-2xl">{name}</h1>
       <h2>{cuisines?.join(",")}</h2>
       <h2>Menu</h2>
       <ul>
-       {itemCards.map( allitems=>(
-<li key={allitems.card.info.id}> {allitems.card.info.name}</li>
+       {itemCards.map( allitems=>(  
+<li key={allitems.card.info.id}> {allitems.card.info.name} - {"Rs."}
+{allitems.card.info.price /100 || allitems.card.info.defaultPrice /100}</li>
        )  ) }
  
      
