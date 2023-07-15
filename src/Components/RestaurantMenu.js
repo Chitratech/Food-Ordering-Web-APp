@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenuData from "../utils/useRestaurantMenuData";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
-
-
-  const {resId}=useParams();
+  const [pToggle, setPToggle] = useState(0);
+  const { resId } = useParams();
   const resDetails = useRestaurantMenuData(resId);
 
   if (!resDetails?.cards || resDetails.cards.length === 0) {
@@ -14,20 +14,28 @@ const RestaurantMenu = () => {
   }
 
   const { name, cuisines } = resDetails.cards[0]?.card?.card?.info || {};
-const {itemCards}= resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
+  const categories =
+    resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
   return (
-    <div className="text-center">
+    <div className="text-center" data-testid="menu">
       <h1 className="font-bold m-4 p-5 text-2xl">{name}</h1>
-      <h2>{cuisines?.join(",")}</h2>
-      <h2>Menu</h2>
-      <ul>
-       {itemCards.map( allitems=>(  
-<li key={allitems.card.info.id}> {allitems.card.info.name} - {"Rs."}
-{allitems.card.info.price /100 || allitems.card.info.defaultPrice /100}</li>
-       )  ) }
- 
-     
-      </ul>
+      <h2 className="font-semibold">{cuisines?.join(",")}</h2>
+      <h2 className="font-semibold">Menu</h2>
+
+      {categories.map((cat, index) => (
+        <RestaurantCategory 
+          key={Math.random()}
+          presentdata={index === pToggle ? true : false}
+          modData={() => setPToggle(index === pToggle ? null : index)}
+          datacat={cat.card?.card}
+        />
+      ))}
     </div>
   );
 };

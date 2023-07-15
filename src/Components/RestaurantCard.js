@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/userContext";
 
 const ResCard = (props) => {
   const { resData } = props;
-
+const {username}=useContext(UserContext);
   const {cloudinaryImageId,name,cuisines,costForTwo,avgRating,deliveryTime}=resData.data;
 
   return (
@@ -17,6 +19,7 @@ const ResCard = (props) => {
       <p className="">₹{costForTwo / 100} For Two</p>
       <p className="">{avgRating}stars</p>
       <p className="">{deliveryTime}minutes delivery</p>
+      <p className="">user:{username}</p>
     </div>
   );
 };

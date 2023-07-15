@@ -8,7 +8,7 @@ import React from "react";
 class About extends React.Component {
     constructor(){
         super();
-        console.log("Parent Constructor");
+  
     }
 
     componentDidMount(){
@@ -19,7 +19,7 @@ class About extends React.Component {
     }
 
     render(){
-      console.log("Parent render");
+    
         return(
             <><div>About</div>
        

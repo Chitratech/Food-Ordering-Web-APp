@@ -2,7 +2,7 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Child constructor");
+  
     this.state = {
       name:"dfdsf",
 
@@ -13,12 +13,12 @@ class UserClass extends React.Component {
     const data = await fetch("https://api.github.com/users/chitraTech");
 
     const datajson = await data.json();
-    console.log(datajson);
+
     this.setState({ name: datajson });
   }
 
   render() {
-    console.log("Child render");
+   
 
     const {name}=this.state.name;
     return (

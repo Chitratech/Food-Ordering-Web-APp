@@ -12,7 +12,7 @@
     } ;
 
 return(
-<div className="shimmer-Warp">
+<div data-testid="shimmer" className="shimmer-Warp">
 <ShimerCards />
    <ShimerCards />
    <ShimerCards />
