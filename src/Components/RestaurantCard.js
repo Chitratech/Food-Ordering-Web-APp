@@ -19,7 +19,7 @@ const {username}=useContext(UserContext);
       <p className="">₹{costForTwo / 100} For Two</p>
       <p className="">{avgRating}stars</p>
       <p className="">{deliveryTime}minutes delivery</p>
-      <p className="">user:{username}</p>
+      {/* <p className="">user:{username}</p> */}
     </div>
   );
 };

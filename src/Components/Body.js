@@ -64,9 +64,9 @@ const Body = () => {
 
   const onlineStatusCheck = useOnlineStatus();
 
-  if (onlineStatusCheck == false) {
-    return <h2>Internet gayo </h2>;
-  }
+  // if (onlineStatusCheck == false) {
+  //   return <h2>Internet gayo </h2>;
+  // }
   return originalRestaturants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -93,8 +93,8 @@ const Body = () => {
             Reset
           </button>
 
-          <input type="text" className="border-black border-2"  value={username} 
-          onChange={(e)=> setUserName(e.target.value) }/>
+          {/* <input type="text" className="border-black border-2"  value={username} 
+          onChange={(e)=> setUserName(e.target.value) }/> */}
         </div>
       </div>
       {listofRestaturant.length === 0 ? <h2>Data not found</h2> : null}
